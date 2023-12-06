@@ -1,3 +1,5 @@
+import os
+import pandas as pd
 import numpy as np
 import librosa
 
@@ -28,21 +30,17 @@ def audio_to_vec_handcrafted_features(y):
    
 
 
-import pandas as pd
 column_names = [f'feature_{i+1}' for i in range(276)]
 column_names += ['track_id']
 df = pd.DataFrame(columns=column_names)
 
 
-import os
-from tqdm import tqdm
-import librosa
-import pandas as pd
+
 
 directory_path = "../data/fma_large/"
 arquivos_problematicos = []  
 
-for root, dirs, files in tqdm(os.walk(directory_path)):
+for root, dirs, files in os.walk(directory_path):
     for filename in files:
         if filename.endswith(".mp3"):
             try:
