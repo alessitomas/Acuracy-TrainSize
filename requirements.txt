@@ -3,4 +3,4 @@ scikit-learn
 numpy
 tdqm
 matplotlib
-```
+librosa
