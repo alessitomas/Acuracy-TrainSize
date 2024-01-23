@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import librosa
 
+
+
 def textures(x, texture_len=5, texture_step=5):
     tx = []
     for i in range( int( (len(x)-texture_len)/texture_step) ):
@@ -37,9 +39,9 @@ df = pd.DataFrame(columns=column_names)
 
 
 
-directory_path = "../data/fma_large/"
+directory_path = "fma_large/"
 arquivos_problematicos = []  
-
+i = 0
 for root, dirs, files in os.walk(directory_path):
     for filename in files:
         if filename.endswith(".mp3"):
@@ -50,6 +52,8 @@ for root, dirs, files in os.walk(directory_path):
                 feats = audio_to_vec_handcrafted_features(y)
                 new_row_data = list(feats) + [track_id]
                 df.loc[len(df)] = new_row_data
+                print(i)
+                i+= 1
             except Exception as e:  
                 arquivos_problematicos.append(filename) 
 
