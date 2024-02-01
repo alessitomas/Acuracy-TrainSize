@@ -1,8 +1,8 @@
-pandas
-numpy
 librosa
 scikit-learn
 tqdm
 transformers
 torchaudio 
 torch
+pandas
+numpy
